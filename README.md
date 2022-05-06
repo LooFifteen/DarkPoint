@@ -5,6 +5,6 @@ DarkPoint is a simple Python program which opens and darkens PowerPoint presenta
 ## Instructions
 * Clone repository
 * Install all packages using `pip install -r requirements.txt`
-* (Optional) add environment variable `FILE_NAME`
+* (Optional) add environment variable `FILE_PATH`
 * Run `main.py`
 * Rest easy

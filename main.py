@@ -6,10 +6,10 @@ from pptx.dml.color import RGBColor
 BLACK = RGBColor(0, 0, 0)
 WHITE = RGBColor(255, 255, 255)
 
-file_name = os.getenv("FILE_NAME")
+file_path = os.getenv("FILE_PATH")
 
-if file_name is None: file_name = input("Enter file name to darken >> ")
-presentation = Presentation(file_name)
+if file_path is None: file_path = input("Enter file path to darken >> ")
+presentation = Presentation(file_path)
 
 for slide in presentation.slides:
     fill = slide.background.fill
@@ -23,6 +23,8 @@ for slide in presentation.slides:
                 font = run.font
                 font.color.rgb = WHITE
 
-new_file_name = f"dark.{file_name}"
-presentation.save(new_file_name)
-print(f"Successfully saved as: {new_file_name}")
+folder = os.path.abspath(os.path.join(file_path, os.pardir))
+file_name = os.path.basename(file_path)
+new_file_path = f"{folder}{os.path.sep}dark.{file_name}"
+presentation.save(new_file_path)
+print(f"Successfully saved as: {new_file_path}")
